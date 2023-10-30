@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Counter</h1>
+    <h2 id="counter">0</h2>
+    <button onclick="increase()">+</button> 
+    <button onclick="decrease()">-</button>
+
+    <script>
+        function increase() {
+            let value = document.getElementById("counter").innerHTML;
+            console.log(value);
+            value = parseInt(value);
+            value++;
+            document.getElementById("counter").innerHTML = value;
+        }
+
+        function decrease() {
+            let value = document.getElementById("counter").innerHTML;
+            console.log(value);
+            value = parseInt(value);
+            value--;
+            document.getElementById("counter").innerHTML = value;
+        }
+    </script>
+
+</body>
+</html>

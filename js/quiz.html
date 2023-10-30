@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <button onclick="getQuiz()">Start</button>
+    <ul id="questions">
+
+    </ul>
+
+    <script>
+        function getQuiz() {
+            fetch('https://opentdb.com/api.php?amount=10')
+            .then(response => response.json())
+            .then(data => {
+                let results = data['results']
+                let questionList = document.getElementById("questions")
+                questionList.innerHTML = ''
+                for(let i = 0; i < results.length; i++) {
+                    console.log(results[i]['question'])
+                    let li = document.createElement("li")
+                    // li.appendChild(document.createTextNode(results[i]['question']))
+                    li.innerHTML = results[i]['question']
+                    questionList.appendChild(li)
+                }
+            })
+        }
+    </script>
+</body>
+</html>
